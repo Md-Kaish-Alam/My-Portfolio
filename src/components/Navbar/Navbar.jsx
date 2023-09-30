@@ -4,10 +4,15 @@ import { motion } from 'framer-motion'
 
 import './Navbar.scss'
 import { images } from '../../constants';
+import { pdfs } from '../../constants';
 
 const Navbar = () => {
 
   const [toggle, setToggle] = useState(false);
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+  }
 
   return (
     <nav className='app__navbar'>
@@ -23,6 +28,14 @@ const Navbar = () => {
             <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
           </li>
         ))}
+        <li className='app__flex p-text'>
+          <div />
+          <a href={pdfs.resume} download="resume.pdf">resume</a>
+        </li>
+        <li className='app__flex p-text'>
+          <div />
+          <a href={pdfs.certificates} download="certificates.pdf">certifications</a>
+        </li>
       </ul>
       <div className='app__navbar-menu'>
         <HiMenuAlt4 onClick={() => setToggle(true)} />
@@ -40,6 +53,12 @@ const Navbar = () => {
                   <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
                 </li>
               ))}
+              <li>
+                <a href=''>resume</a>
+              </li>
+              <li>
+                <a href=''>certifications</a>
+              </li>
             </ul>
           </motion.div>
         )}

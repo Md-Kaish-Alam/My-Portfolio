@@ -37,6 +37,8 @@ import spotify from '../assets/spotify.png';
 
 import heroImg from '../assets/hero-img.png'
 
+
+
 export default {
   email,
   mobile,
