@@ -54,10 +54,10 @@ const Navbar = () => {
                 </li>
               ))}
               <li>
-                <a href=''>resume</a>
+                <a href={pdfs.resume} download="resume.pdf">resume</a>
               </li>
               <li>
-                <a href=''>certifications</a>
+                <a href={pdfs.certificates} download="certificates.pdf">certifications</a>
               </li>
             </ul>
           </motion.div>
