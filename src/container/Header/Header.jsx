@@ -7,7 +7,7 @@ import { images } from '../../constants'
 import './Header.scss'
 
 const scaleVariants = {
-  whileInView:{
+  whileInView: {
     scale: [0, 1],
     opacity: [0, 1],
     transition: {
@@ -21,8 +21,8 @@ const Header = () => {
   return (
     <div className='app__header app__flex'>
       <motion.div
-        whileInView={{ x: [-100, 0], opacity: [0,1] }}
-        transition={{ duration: 0.5}}
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
         className='app__header-info'
       >
         <div className='app__header-badge'>
@@ -37,20 +37,20 @@ const Header = () => {
           </div>
           <div className='tag-cmp app__flex' style={{ gap: '5px' }}>
             <p className='p-text'>Software Engineer</p>
-            <p className='p-text'>Full Stack Developer</p>
           </div>
+
         </div>
       </motion.div>
 
       <motion.div
-        whileInView={{ opacity: [0,1] }}
-        transition={{ duration: 1, delayChildren: 0.5}}
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 1, delayChildren: 0.5 }}
         className='app__header-img'
       >
         <img src={images.heroImg} alt='profile-bg' />
-        
+
         <motion.img
-          whileInView={{ scale: [0,1] }}
+          whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
           src={images.circle}
           alt='profile_circle'
@@ -63,7 +63,7 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className='app_header-circles'
       >
-        {[images.python, images.react, images.redux].map((circle, index) => (
+        {[images.react, images.python, images.cpp].map((circle, index) => (
           <div className='circle-cmp app__flex' key={`circle-${index}`}>
             <img src={circle} alt='circle' />
           </div>

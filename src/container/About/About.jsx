@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+import { useMediaQuery } from 'react-responsive'
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
@@ -8,15 +10,14 @@ import "./About.scss";
 const About = () => {
   const [abouts, setAbouts] = useState([]);
 
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   useEffect(() => {
     const query = `*[_type == "abouts"]`;
 
     client.fetch(query).then((data) => setAbouts(data));
   }, []);
-
-  // const handleReadMore = (id) => {
-  //   setAbouts(abouts[id]);
-  // };
 
   return (
     <React.Fragment>
@@ -28,18 +29,24 @@ const About = () => {
         {abouts.map((about, index) => (
           <motion.div
             whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5, type: "tween" }}
             className="app__profile-item"
-            key={about.title + index}
+            data-tooltip-id={about.title}
+            key={about.title}
           >
             <img src={urlFor(about.imgUrl)} alt={about.title} />
-            <h2 className="bold-text" style={{ marginTop: "20px" }}>
+            <h2 className="bold-text" style={{ marginTop: "20px", textAlign: 'center', width: '100%' }}>
               {about.title}
             </h2>
-            <p className="p-text" style={{ marginTop: "10px" }}>
-              {about.description.substring(0, 100)}
-            </p>
+            <ReactTooltip
+              id={about.title}
+              effect="solid"
+              arrowColor="#fff"
+              className="about-tooltip"
+              place={isMobile || isTablet ? 'top': 'right'}
+            >
+              {about.description}
+            </ReactTooltip>
           </motion.div>
         ))}
       </div>

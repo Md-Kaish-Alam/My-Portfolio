@@ -73,6 +73,7 @@ const Skills = () => {
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip"
+                      place='top-start'
                     >
                       {work.desc}
                     </ReactTooltip>

@@ -30,11 +30,11 @@ const Navbar = () => {
         ))}
         <li className='app__flex p-text'>
           <div />
-          <a href={pdfs.resume} download="resume.pdf">resume</a>
+          <a href={pdfs.resume} download="KaishAlam-FullStackDeveloper.pdf">resume</a>
         </li>
         <li className='app__flex p-text'>
           <div />
-          <a href={pdfs.certificates} download="certificates.pdf">certifications</a>
+          <a href={pdfs.certificates} download="KaishAlam-certificates.pdf">certifications</a>
         </li>
       </ul>
       <div className='app__navbar-menu'>

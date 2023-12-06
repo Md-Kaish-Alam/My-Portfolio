@@ -23,8 +23,14 @@ const Footer = () => {
   }
 
   const handleSubmit = () => {
-    setLoading(true)
 
+    if(!name || !email || !message) {
+      alert('Please enter the required fields.');
+      return;
+    }
+
+    setLoading(true)
+    
     const contact = {
       _type: 'contact',
       name: name,
@@ -40,7 +46,7 @@ const Footer = () => {
 
   return (
     <React.Fragment>
-      <h2 className="head-text">Take a coffee & chat with me.</h2>
+      <h2 className="head-text">Want to <span>Contact</span> with <span>me</span> ?</h2>
 
       <div className="app__footer-cards">
         <div className="app__footer-card">
@@ -58,11 +64,14 @@ const Footer = () => {
       </div>
 
       {isFormSubmitted ? (
-        <div>
+        <div className='app__footer-thanks'>
+          <div className=''>
+            <h3 className='head-text'>Kaish</h3>
+          </div>
           <h3 className="head-text">Thank You for getting touch</h3>
         </div>
       ) : (
-        <form className="app__footer-form app__flex">
+          <form className="app__footer-form app__flex">
           <div className="app__flex">
             <input
               className="p-text"
@@ -95,14 +104,11 @@ const Footer = () => {
               required
             />
           </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>
+            <button type="button" className="p-text" onClick={handleSubmit}>
             {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       )}
-      <div className="copyright">
-        <p className="p-text">@2023 anonymouskaish1511 All rights reserved</p>
-      </div>
     </React.Fragment>
   )
 }

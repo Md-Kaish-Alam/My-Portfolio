@@ -45,13 +45,12 @@ const Work = () => {
 
       <div className="app__work-filter">
         {[
+          "All",
           "Web App",
-          "Python",
+          "NextJs",
           "Django",
           "MERN Stack",
-          "Machine Learning",
           "Mobile App",
-          "All",
         ].map((item, index) => (
           <div
             key={index}
